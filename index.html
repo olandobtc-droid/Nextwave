@@ -1,29 +1,275 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>My Music Hub</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <style>
-        body {
-            background: #111;
-            color: white;
-            font-family: Arial;
-            text-align: center;
-            padding: 30px;
-        }
-        h1 { color: #00ff99; }
-        .box {
-            background: #222;
-            padding: 25px;
-            border-radius: 15px;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NEXTWAVE | Discover the Next Generation</title>
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #090910;
+  color: white;
+  font-family: Arial, sans-serif;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 22px 6%;
+  background: #11111c;
+  border-bottom: 1px solid #29233d;
+}
+
+.logo {
+  font-size: 25px;
+  font-weight: 900;
+  color: #a970ff;
+  letter-spacing: 2px;
+}
+
+nav a {
+  color: #ccc;
+  text-decoration: none;
+  margin-left: 18px;
+  font-size: 14px;
+}
+
+nav a:hover {
+  color: #b477ff;
+}
+
+.hero {
+  padding: 75px 7%;
+  background: linear-gradient(120deg,#241044,#10101d,#090910);
+}
+
+.hero h1 {
+  font-size: clamp(38px,7vw,65px);
+  max-width: 650px;
+  margin-bottom: 18px;
+}
+
+.hero h1 span {
+  color: #b477ff;
+}
+
+.hero p {
+  color: #c3bdd0;
+  font-size: 17px;
+  margin-bottom: 28px;
+}
+
+.button {
+  display: inline-block;
+  background: #934cff;
+  color: white;
+  padding: 14px 25px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+section {
+  padding: 35px 6%;
+}
+
+.section-title {
+  font-size: 24px;
+  margin-bottom: 22px;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(145px,1fr));
+  gap: 20px;
+}
+
+.card {
+  background: #171722;
+  padding: 12px;
+  border-radius: 13px;
+  transition: 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  background: #242033;
+}
+
+.cover {
+  width: 100%;
+  aspect-ratio: 1;
+  border-radius: 9px;
+  background: linear-gradient(135deg,#6527a9,#c05bff,#161025);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 35px;
+}
+
+.card h3 {
+  font-size: 15px;
+  margin-top: 12px;
+}
+
+.card p {
+  color: #aaa;
+  font-size: 12px;
+  margin-top: 6px;
+}
+
+.player {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: #191522;
+  border-top: 1px solid #45345c;
+  padding: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.player button {
+  background: #a45aff;
+  color: white;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 20px;
+}
+
+footer {
+  text-align: center;
+  padding: 60px 15px 110px;
+  color: #888;
+}
+
+@media(max-width:600px) {
+  header {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  nav a {
+    margin: 0 7px;
+    font-size: 12px;
+  }
+
+  .hero {
+    padding: 55px 7%;
+  }
+}
+</style>
 </head>
+
 <body>
-    <h1>🎵 MY MUSIC HUB</h1>
-    <div class="box">
-        <h2>Welcome to My Music Website</h2>
-        <p>Discover the latest music and artists.</p>
+
+<header>
+  <div class="logo">NEXTWAVE</div>
+
+  <nav>
+    <a href="#">Home</a>
+    <a href="#discover">Discover</a>
+    <a href="#artists">Artists</a>
+    <a href="#new">New Music</a>
+  </nav>
+</header>
+
+<div class="hero">
+  <h1>Discover the <span>Next Generation.</span></h1>
+
+  <p>
+    Your music. Your discovery. Your next wave.
+    Explore music and discover amazing artists from around the world.
+  </p>
+
+  <a href="#discover" class="button">Explore Music</a>
+</div>
+
+<section id="discover">
+  <h2 class="section-title">🔥 Trending Music</h2>
+
+  <div class="cards">
+    <div class="card">
+      <div class="cover">🎵</div>
+      <h3>Coming Soon</h3>
+      <p>Featured Artist</p>
     </div>
+
+    <div class="card">
+      <div class="cover">🎧</div>
+      <h3>Coming Soon</h3>
+      <p>Featured Artist</p>
+    </div>
+
+    <div class="card">
+      <div class="cover">🎤</div>
+      <h3>Coming Soon</h3>
+      <p>Featured Artist</p>
+    </div>
+
+    <div class="card">
+      <div class="cover">🎶</div>
+      <h3>Coming Soon</h3>
+      <p>Featured Artist</p>
+    </div>
+  </div>
+</section>
+
+<section id="new">
+  <h2 class="section-title">✨ New Releases</h2>
+
+  <div class="cards">
+    <div class="card">
+      <div class="cover">💜</div>
+      <h3>New Music</h3>
+      <p>Discover new sounds</p>
+    </div>
+
+    <div class="card">
+      <div class="cover">🌍</div>
+      <h3>Global Sounds</h3>
+      <p>Music from everywhere</p>
+    </div>
+  </div>
+</section>
+
+<section id="artists">
+  <h2 class="section-title">🌟 For Artists</h2>
+
+  <p style="color:#bbb;line-height:1.8;margin-bottom:22px">
+    Are you an upcoming or established artist?
+    NEXTWAVE is building a platform where musicians
+    can share their sound with the world.
+  </p>
+
+  <a href="mailto:nextwave@example.com" class="button">
+    Artist Registration Coming Soon
+  </a>
+</section>
+
+<footer>
+  <h2 class="logo">NEXTWAVE</h2>
+  <p>Discover the Next Generation.</p>
+  <p style="margin-top:15px">© 2026 NEXTWAVE. All rights reserved.</p>
+</footer>
+
+<div class="player">
+  <div>
+    <strong>NEXTWAVE PLAYER</strong>
+    <p style="font-size:12px;color:#aaa">Music player coming soon</p>
+  </div>
+
+  <button disabled>▶</button>
+</div>
+
 </body>
 </html>
