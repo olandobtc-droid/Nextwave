@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#090d0b">
+<title>Nextwave — Music for every moment</title>
+<style>
+:root{--bg:#090d0b;--panel:#111915;--panel2:#17221c;--green:#00e69a;--muted:#9aa9a1;--white:#f5fbf7;--line:#26342c}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at 80% -10%,#123526 0,transparent 34%),var(--bg);color:var(--white);font-family:Arial,Helvetica,sans-serif;min-height:100vh}
+button,input{font:inherit}button{cursor:pointer}.app{max-width:1180px;margin:auto;padding:22px 24px 120px}
+header{display:flex;align-items:center;justify-content:space-between;gap:18px;margin-bottom:34px}.brand{font-size:25px;font-weight:900;letter-spacing:1px;color:var(--green);display:flex;align-items:center;gap:10px}.brand span{font-size:30px}
+.header-actions{display:flex;gap:12px;align-items:center}.search{width:min(340px,42vw);background:#121a15;border:1px solid var(--line);border-radius:999px;padding:12px 17px;color:white;outline:none}.search:focus{border-color:var(--green)}
+.btn{border:0;border-radius:999px;padding:12px 18px;font-weight:700;background:var(--green);color:#03130c}.btn.secondary{background:#1a2820;color:#e9fff3;border:1px solid #304238}.btn:hover{filter:brightness(1.08)}
+.hero{background:linear-gradient(115deg,#123b2a,#102219 62%,#172a20);border:1px solid #244b36;border-radius:28px;padding:40px;display:flex;justify-content:space-between;align-items:center;gap:20px;overflow:hidden;position:relative}.hero:after{content:"♫";font-size:210px;line-height:1;color:#00e69a18;position:absolute;right:7%;top:-20px}.hero-content{position:relative;z-index:1;max-width:620px}.eyebrow{color:var(--green);font-weight:800;text-transform:uppercase;letter-spacing:2px;font-size:12px}.hero h1{font-size:clamp(34px,6vw,60px);line-height:1.03;margin:14px 0}.hero p{color:#c0d1c7;line-height:1.6;max-width:480px}.hero .btn{margin-top:12px}
+.section{margin-top:36px}.section-head{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:16px}.section h2{font-size:22px;margin:0}.muted{color:var(--muted);font-size:14px}
+.grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}.card{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:14px;min-width:0}.cover{aspect-ratio:1;border-radius:13px;display:grid;place-items:center;font-size:48px;background:linear-gradient(135deg,#164b34,#101a15);margin-bottom:13px}.cover.c2{background:linear-gradient(135deg,#48301b,#1d1913)}.cover.c3{background:linear-gradient(135deg,#263d63,#121925)}.cover.c4{background:linear-gradient(135deg,#4a254b,#211427)}.card h3{font-size:15px;margin:0 0 6px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.card p{font-size:13px;color:var(--muted);margin:0}.track-list{background:var(--panel);border:1px solid var(--line);border-radius:18px;overflow:hidden}.track{display:flex;align-items:center;gap:13px;padding:13px 16px;border-bottom:1px solid var(--line)}.track:last-child{border-bottom:0}.track-icon{width:42px;height:42px;border-radius:10px;background:#1c3327;display:grid;place-items:center;font-size:20px;flex:none}.track-info{min-width:0;flex:1}.track-info strong{display:block;font-size:14px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.track-info small{color:var(--muted)}.track-actions{display:flex;gap:8px}.icon-btn{border:1px solid var(--line);background:#18231c;color:white;border-radius:10px;padding:9px 11px}.icon-btn:hover{border-color:var(--green);color:var(--green)}
+.empty{padding:28px;text-align:center;color:var(--muted)}.upload-box{border:1px dashed #42614f;border-radius:18px;padding:25px;text-align:center;background:#101a14}.upload-box p{color:var(--muted);font-size:14px}
+footer{margin-top:45px;text-align:center;color:#74847a;font-size:12px}
+.player{position:fixed;bottom:0;left:0;right:0;background:#101813f2;backdrop-filter:blur(18px);border-top:1px solid var(--line);padding:12px 22px;z-index:5}.player-inner{max-width:1180px;margin:auto;display:flex;align-items:center;gap:16px}.now{min-width:150px;flex:1}.now strong{font-size:13px;display:block}.now small{font-size:11px;color:var(--muted)}.controls{display:flex;align-items:center;gap:12px}.play{background:var(--green);color:#03130c;border:0;border-radius:50%;width:42px;height:42px;font-size:17px;font-weight:bold}.progress-wrap{display:flex;align-items:center;gap:9px;flex:1;max-width:390px;color:var(--muted);font-size:11px}.progress{width:100%;accent-color:var(--green)}.volume{width:85px;accent-color:var(--green)}
+@media(max-width:760px){.app{padding:18px 15px 130px}header{align-items:flex-start;flex-direction:column}.header-actions{width:100%}.search{width:100%;flex:1}.hero{padding:27px 22px}.grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:11px}.section{margin-top:29px}.player-inner{gap:10px;flex-wrap:wrap}.now{min-width:0;flex:1}.progress-wrap{order:3;max-width:none;flex-basis:100%}.volume{display:none}.track-actions .download{display:none}}
+@media(min-width:761px) and (max-width:980px){.grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+</style>
+</head>
+<body>
+<div class="app">
+<header>
+  <div class="brand"><span>♫</span> NEXTWAVE</div>
+  <div class="header-actions">
+    <input id="search" class="search" type="search" placeholder="Search songs or artists…" aria-label="Search songs or artists">
+    <button class="btn" id="uploadTop">＋ Add music</button>
+    <input id="fileInput" type="file" accept="audio/*" multiple hidden>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-content">
+    <div class="eyebrow">Your sound. Your wave.</div>
+    <h1>Discover your<br>next favourite sound.</h1>
+    <p>Bring your music collection together. Add your own audio, search your tracks and enjoy them with the built-in player.</p>
+    <button class="btn" id="heroUpload">＋ Upload your music</button>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-head"><h2>Explore collections</h2><span class="muted">Curated for your mood</span></div>
+  <div class="grid">
+    <article class="card"><div class="cover">🌅</div><h3>Afrobeats & Good Vibes</h3><p>Feel-good sounds</p></article>
+    <article class="card"><div class="cover c2">🎹</div><h3>Chill & Focus</h3><p>Slow down and reset</p></article>
+    <article class="card"><div class="cover c3">🎧</div><h3>Global Hits</h3><p>Sounds from everywhere</p></article>
+    <article class="card"><div class="cover c4">💜</div><h3>Love & Soul</h3><p>For every feeling</p></article>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-head"><h2>Your music library</h2><span class="muted" id="trackCount">0 tracks</span></div>
+  <div class="track-list" id="trackList"><div class="empty">Your library is waiting for music.<br>Tap <b>Add music</b> to choose audio files from your device.</div></div>
+</section>
+
+<section class="section upload-box">
+  <h2>Make Nextwave yours</h2>
+  <p>Add MP3, WAV, M4A and other audio files supported by your browser.</p>
+  <button class="btn secondary" id="uploadBottom">Choose audio files</button>
+</section>
+<footer>© <span id="year"></span> NEXTWAVE · Made for music lovers</footer>
+</div>
+
+<div class="player">
+  <div class="player-inner">
+    <div class="now"><strong id="nowTitle">Nothing playing</strong><small id="nowArtist">Choose a track from your library</small></div>
+    <div class="controls"><button class="icon-btn" id="prev" aria-label="Previous track">⏮</button><button class="play" id="play" aria-label="Play">▶</button><button class="icon-btn" id="next" aria-label="Next track">⏭</button></div>
+    <div class="progress-wrap"><span id="currentTime">0:00</span><input class="progress" id="progress" type="range" min="0" max="100" value="0"><span id="duration">0:00</span></div>
+    <input class="volume" id="volume" type="range" min="0" max="1" step=".01" value=".85" aria-label="Volume">
+  </div>
+</div>
+<audio id="audio"></audio>
+<script>
+const audio=document.getElementById('audio'), fileInput=document.getElementById('fileInput');
+const tracks=[]; let current=-1;
+const $=id=>document.getElementById(id);
+function time(s){if(!Number.isFinite(s))return '0:00';return Math.floor(s/60)+':'+String(Math.floor(s%60)).padStart(2,'0')}
+function render(){
+ const q=$('search').value.trim().toLowerCase();
+ const visible=tracks.map((t,i)=>({...t,index:i})).filter(t=>(t.name+' '+t.artist).toLowerCase().includes(q));
+ $('trackCount').textContent=tracks.length+' track'+(tracks.length===1?'':'s');
+ $('trackList').innerHTML=visible.length?visible.map(t=>`<div class="track"><div class="track-icon">♫</div><div class="track-info"><strong>${escapeHtml(t.name)}</strong><small>${escapeHtml(t.artist)}</small></div><div class="track-actions"><button class="icon-btn" onclick="playTrack(${t.index})" aria-label="Play ${escapeHtml(t.name)}">▶</button><button class="icon-btn download" onclick="downloadTrack(${t.index})" aria-label="Download ${escapeHtml(t.name)}">↓</button></div></div>`).join(''):`<div class="empty">${tracks.length?'No tracks match your search.':'Your library is waiting for music.<br>Tap <b>Add music</b> to choose audio files from your device.'}</div>`;
+}
+function escapeHtml(s){return s.replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+function addFiles(files){[...files].filter(f=>f.type.startsWith('audio/')).forEach(file=>{const url=URL.createObjectURL(file);tracks.push({name:file.name.replace(/\.[^.]+$/,''),artist:'Your device',url,file});});render();if(tracks.length===1)playTrack(0);fileInput.value=''}
+function playTrack(i){if(i<0||i>=tracks.length)return;current=i;audio.src=tracks[i].url;audio.play().catch(()=>{});$('nowTitle').textContent=tracks[i].name;$('nowArtist').textContent=tracks[i].artist;$('play').textContent='Ⅱ';}
+function togglePlay(){if(current===-1){if(tracks.length)playTrack(0);return}if(audio.paused){audio.play();$('play').textContent='Ⅱ'}else{audio.pause();$('play').textContent='▶'}}
+function downloadTrack(i){const t=tracks[i];if(!t)return;const a=document.createElement('a');a.href=t.url;a.download=t.file.name;document.body.appendChild(a);a.click();a.remove()}
+function step(d){if(!tracks.length)return;playTrack((current+d+tracks.length)%tracks.length)}
+['uploadTop','heroUpload','uploadBottom'].forEach(id=>$(id).addEventListener('click',()=>fileInput.click()));
+fileInput.addEventListener('change',e=>addFiles(e.target.files));
+$('search').addEventListener('input',render);$('play').addEventListener('click',togglePlay);
+$('prev').addEventListener('click',()=>step(-1));$('next').addEventListener('click',()=>step(1));
+$('volume').addEventListener('input',e=>audio.volume=e.target.value);
+audio.addEventListener('timeupdate',()=>{$('currentTime').textContent=time(audio.currentTime);$('duration').textContent=time(audio.duration);$('progress').value=audio.duration?audio.currentTime/audio.duration*100:0});
+$('progress').addEventListener('input',e=>{if(audio.duration)audio.currentTime=audio.duration*e.target.value/100});
+audio.addEventListener('ended',()=>step(1));audio.volume=.85;$('year').textContent=new Date().getFullYear();render();
+</script>
+</body>
+</html>
