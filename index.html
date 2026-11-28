@@ -1,2 +1,134 @@
-# Nextwave
-A global music streaming platform for artists and music lovers.
+#<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#090b12">
+  <title>NEXTWAVE — Discover Your Next Sound</title>
+  <style>
+    :root{--bg:#090b12;--panel:#121622;--panel2:#191f2d;--text:#f5f7fb;--muted:#9ba5b8;--accent:#8b5cf6;--accent2:#22d3ee;--line:#252c3b}
+    *{box-sizing:border-box} body{margin:0;background:radial-gradient(circle at 80% 0%,#211747 0,transparent 32%),var(--bg);color:var(--text);font-family:Inter,system-ui,-apple-system,Segoe UI,sans-serif}
+    button,input{font:inherit} button{cursor:pointer}
+    .shell{max-width:1180px;margin:auto;padding:24px}
+    header{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:42px}
+    .brand{font-size:25px;font-weight:900;letter-spacing:2px}.brand span{color:var(--accent2)}
+    nav{display:flex;gap:24px;color:var(--muted);font-size:14px} nav a{color:inherit;text-decoration:none}
+    .pill{border:1px solid var(--line);border-radius:999px;padding:10px 16px;background:#151a28;color:white}
+    .hero{display:grid;grid-template-columns:1.2fr .8fr;gap:28px;align-items:center;padding:42px;border:1px solid #34304f;border-radius:28px;background:linear-gradient(120deg,rgba(139,92,246,.22),rgba(34,211,238,.07)),#111522;overflow:hidden}
+    .eyebrow{color:var(--accent2);font-size:12px;font-weight:800;letter-spacing:2px;text-transform:uppercase}
+    h1{font-size:clamp(38px,6vw,68px);line-height:1.02;margin:14px 0} .hero p{color:#c2c9d6;max-width:560px;line-height:1.7}
+    .actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:24px}.primary{border:0;border-radius:999px;padding:13px 21px;background:linear-gradient(90deg,var(--accent),#6554ed);color:white;font-weight:800}.secondary{border:1px solid #55516f;border-radius:999px;padding:13px 21px;background:transparent;color:white;font-weight:700}
+    .art{min-height:250px;border-radius:24px;background:linear-gradient(145deg,#38206b,#111b38 55%,#0c6b79);display:flex;align-items:center;justify-content:center;position:relative;box-shadow:0 25px 70px #0008}
+    .disc{width:190px;height:190px;border-radius:50%;background:repeating-radial-gradient(circle,#111 0 3px,#25283a 4px 6px);border:8px solid #34384d;display:grid;place-items:center;box-shadow:0 15px 35px #0009}
+    .disc:after{content:"NW";width:65px;height:65px;border-radius:50%;background:linear-gradient(135deg,var(--accent),var(--accent2));display:grid;place-items:center;font-weight:900}
+    section{margin-top:48px}.section-head{display:flex;align-items:end;justify-content:space-between;gap:12px;margin-bottom:18px}h2{font-size:25px;margin:0}.muted{color:var(--muted);font-size:14px}
+    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+    .card,.upload{background:var(--panel);border:1px solid var(--line);border-radius:20px;padding:17px}
+    .cover{height:150px;border-radius:14px;background:linear-gradient(135deg,#6d28d9,#0891b2);display:grid;place-items:center;font-size:36px;font-weight:900;margin-bottom:14px;overflow:hidden}
+    .cover img{width:100%;height:100%;object-fit:cover}.track-title{font-weight:800}.track-artist{color:var(--muted);font-size:13px;margin-top:4px}
+    .play{margin-top:14px;width:100%;border:0;border-radius:12px;padding:10px;background:#252b3b;color:white;font-weight:700}
+    .upload-wrap{display:grid;grid-template-columns:1fr 1fr;gap:18px}.upload h3{margin:0 0 8px}.field{margin-top:14px}.field label{display:block;color:#cbd2df;font-size:13px;margin-bottom:7px}
+    .field input{width:100%;border:1px solid var(--line);background:#0b0f19;color:white;border-radius:11px;padding:12px}
+    .hint{font-size:12px;color:var(--muted);line-height:1.5;margin-top:10px}
+    .player{position:sticky;bottom:12px;margin-top:35px;background:#171d2b;border:1px solid #343b4c;border-radius:18px;padding:14px 18px;display:flex;align-items:center;gap:14px;box-shadow:0 15px 45px #0009}
+    .player strong{font-size:14px}.player small{display:block;color:var(--muted);margin-top:3px}.player audio{width:100%;height:36px}
+    footer{padding:35px 0 15px;color:var(--muted);font-size:13px;text-align:center}
+    @media(max-width:760px){.shell{padding:17px}nav{display:none}.hero{grid-template-columns:1fr;padding:27px}.art{min-height:190px}.disc{width:145px;height:145px}.grid{grid-template-columns:1fr 1fr}.upload-wrap{grid-template-columns:1fr}.player{flex-wrap:wrap}.player audio{min-width:100%}}
+    @media(max-width:430px){.grid{grid-template-columns:1fr}.section-head{align-items:start;flex-direction:column}}
+  </style>
+</head>
+<body>
+<div class="shell">
+  <header>
+    <div class="brand">NEXT<span>WAVE</span></div>
+    <nav><a href="#discover">Discover</a><a href="#upload">Upload music</a><a href="#about">About</a></nav>
+    <a class="pill" href="#upload" style="text-decoration:none">For Artists ↗</a>
+  </header>
+
+  <main>
+    <div class="hero">
+      <div>
+        <div class="eyebrow">A new wave of sound</div>
+        <h1>Your sound.<br> Your people.<br><span style="color:var(--accent2)">Your NEXTWAVE.</span></h1>
+        <p>Discover fresh music, support independent artists, and share the sound you’ve been working on with listeners everywhere.</p>
+        <div class="actions"><a class="primary" href="#discover" style="text-decoration:none">Explore music</a><a class="secondary" href="#upload" style="text-decoration:none">Upload a song</a></div>
+      </div>
+      <div class="art"><div class="disc"></div></div>
+    </div>
+
+    <section id="discover">
+      <div class="section-head"><div><div class="eyebrow">Made for music lovers</div><h2>Featured sounds</h2></div><div class="muted">Independent music starts here</div></div>
+      <div class="grid" id="trackGrid">
+        <article class="card">
+          <div class="cover">NW</div><div class="track-title">Lingo</div><div class="track-artist">NEXTWAVE featured track</div>
+          <button class="play" onclick="playFeatured()">▶ Play track</button>
+        </article>
+        <article class="card"><div class="cover" style="background:linear-gradient(135deg,#be185d,#7c3aed)">✦</div><div class="track-title">Your next favourite</div><div class="track-artist">Discover independent artists</div><button class="play" onclick="document.querySelector('#upload').scrollIntoView({behavior:'smooth'})">Explore artist uploads</button></article>
+        <article class="card"><div class="cover" style="background:linear-gradient(135deg,#0e7490,#164e63)">♫</div><div class="track-title">Fresh discoveries</div><div class="track-artist">New sounds are on the way</div><button class="play" onclick="document.querySelector('#upload').scrollIntoView({behavior:'smooth'})">Submit your music</button></article>
+      </div>
+    </section>
+
+    <section id="upload">
+      <div class="section-head"><div><div class="eyebrow">Your stage is waiting</div><h2>Artist upload preview</h2></div></div>
+      <div class="upload-wrap">
+        <div class="upload">
+          <h3>Share your music</h3><p class="muted">Add your song details and preview your audio on this page.</p>
+          <div class="field"><label for="artist">Artist name</label><input id="artist" placeholder="Enter artist name"></div>
+          <div class="field"><label for="title">Song title</label><input id="title" placeholder="Enter song title"></div>
+          <div class="field"><label for="audioFile">MP3 audio file</label><input id="audioFile" type="file" accept="audio/mpeg,audio/mp3,audio/*"></div>
+          <div class="field"><label for="coverFile">Cover artwork</label><input id="coverFile" type="file" accept="image/*"></div>
+          <div class="actions"><button class="primary" onclick="previewUpload()">Preview my song</button></div>
+          <p class="hint">This preview lets you test a song in your browser. Permanent public uploads need a secure cloud-upload connection and a song database before launch.</p>
+        </div>
+        <div class="upload">
+          <h3>Preview</h3>
+          <div class="cover" id="previewCover">♫</div>
+          <div class="track-title" id="previewTitle">Your song title</div><div class="track-artist" id="previewArtist">Your artist name</div>
+          <div style="margin-top:20px"><audio id="previewPlayer" controls style="width:100%"></audio></div>
+          <p class="hint" id="previewMessage">Choose an audio file and tap “Preview my song”.</p>
+        </div>
+      </div>
+    </section>
+    <section id="about"><div class="section-head"><div><div class="eyebrow">The home of new sounds</div><h2>Built for the next generation of artists</h2></div></div><p class="muted" style="line-height:1.8;max-width:760px">NEXTWAVE is a place for independent voices and music fans to meet. Discover new sounds, celebrate creativity, and help the next wave get heard.</p></section>
+  </main>
+  <div class="player"><div style="font-size:24px">♫</div><div style="min-width:125px"><strong id="nowTitle">NEXTWAVE Player</strong><small id="nowArtist">Ready when you are</small></div><audio id="mainPlayer" controls preload="none"></audio></div>
+  <footer>© <span id="year"></span> NEXTWAVE. Made for music and the people behind it.</footer>
+</div>
+<script>
+  const featuredAudio = "https://res.cloudinary.com/hi1hkjem/video/upload/v1795819236/Lingo.mp3";
+  const mainPlayer = document.getElementById('mainPlayer');
+  function playFeatured(){
+    mainPlayer.src = featuredAudio;
+    document.getElementById('nowTitle').textContent = 'Lingo';
+    document.getElementById('nowArtist').textContent = 'NEXTWAVE featured track';
+    mainPlayer.play().catch(()=>{});
+  }
+  let currentAudioUrl = null;
+  function previewUpload(){
+    const artist = document.getElementById('artist').value.trim() || 'Independent artist';
+    const title = document.getElementById('title').value.trim() || 'Untitled track';
+    const audio = document.getElementById('audioFile').files[0];
+    const cover = document.getElementById('coverFile').files[0];
+    document.getElementById('previewTitle').textContent = title;
+    document.getElementById('previewArtist').textContent = artist;
+    if(cover){
+      const coverUrl = URL.createObjectURL(cover);
+      document.getElementById('previewCover').innerHTML = '<img alt="Song cover" src="'+coverUrl+'">';
+    }
+    if(audio){
+      if(currentAudioUrl) URL.revokeObjectURL(currentAudioUrl);
+      currentAudioUrl = URL.createObjectURL(audio);
+      document.getElementById('previewPlayer').src = currentAudioUrl;
+      mainPlayer.src = currentAudioUrl;
+      document.getElementById('nowTitle').textContent = title;
+      document.getElementById('nowArtist').textContent = artist;
+      document.getElementById('previewMessage').textContent = 'Your song is ready to preview on this device.';
+    } else {
+      document.getElementById('previewMessage').textContent = 'Please choose an audio file first.';
+    }
+  }
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+</body>
+</html> 
+
